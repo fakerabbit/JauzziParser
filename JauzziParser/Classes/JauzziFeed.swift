@@ -12,27 +12,27 @@ import Alamofire
 // MARK:- Feed
 
 public struct JEntry {
-    var author: String
-    var categories: [String]
-    var htmlContent: String
-    var link: String
-    var mediaGroups: [[String : AnyObject]]
-    var publishedDate: Date?
-    var title: String
-    var contentSnippet: String
-    var isFav: Bool
-    var pubDate: String
+    public var author: String
+    public var categories: [String]
+    public var htmlContent: String
+    public var link: String
+    public var mediaGroups: [[String : AnyObject]]
+    public var publishedDate: Date?
+    public var title: String
+    public var contentSnippet: String
+    public var isFav: Bool
+    public var pubDate: String
 }
 
-public class JauzziFeed {
+public class JauzziFeed: NSObject {
     
-    static let shared = JauzziFeed()
+    public static let shared = JauzziFeed()
     
     let GOOGLE_FEED_API_URL = "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=-1&q="
     
-    typealias JauzziParserCallback = ([JEntry]) -> Void
+    public typealias JauzziParserCallback = ([JEntry]) -> Void
     
-    func fetchRss(url: String, callback: @escaping JauzziParserCallback) {
+    public func fetchRss(url: String, callback: @escaping JauzziParserCallback) {
         
         let reqUrl = GOOGLE_FEED_API_URL + url.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlPathAllowed)!
         
