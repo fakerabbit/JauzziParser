@@ -5,6 +5,7 @@ An RSS Feed Parser written in Swift.
 [![cocoapods compatible](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg)](https://cocoapods.org/pods/JauzziParser)
 [![cocoapods compatible](https://img.shields.io/badge/pod-v0.4.0-green.svg)](https://cocoapods.org/pods/JauzziParser)
 [![language](https://img.shields.io/badge/swift-v3.0-orange.svg)](https://swift.org)
+[![documentation](https://img.shields.io/badge/docs-100%25-lightgrey.svg)](http://cocoadocs.org/docsets/JauzziParser/)
 
 ## Requirements
 
