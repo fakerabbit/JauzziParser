@@ -24,9 +24,9 @@ public struct JEntry {
     public var pubDate: String
 }
 
-public class JauzziFeed: NSObject {
+public class JauzziParser {
     
-    public static let shared = JauzziFeed()
+    public static let sharedInstance = JauzziParser()
     
     let GOOGLE_FEED_API_URL = "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=-1&q="
     
