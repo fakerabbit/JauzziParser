@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'JauzziParser'
-s.version          = '0.3.0'
+s.version          = '0.4.0'
 s.summary          = 'An RSS feed parser written in Swift 3.0.'
 
 # This description is used to generate tags and improve search results.
