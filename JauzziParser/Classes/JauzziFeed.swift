@@ -11,7 +11,7 @@ import Alamofire
 
 // MARK:- Feed
 
-struct JEntry {
+public struct JEntry {
     var author: String
     var categories: [String]
     var htmlContent: String

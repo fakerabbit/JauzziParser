@@ -1,36 +1,42 @@
+#
+# Be sure to run `pod lib lint JauzziParser.podspec' to ensure this is a
+# valid spec before submitting.
+#
+# Any lines starting with a # are optional, but their use is encouraged
+# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
+#
+
 Pod::Spec.new do |s|
+s.name             = 'JauzziParser'
+s.version          = '0.2.0'
+s.summary          = 'An RSS feed parser written in Swift 3.0.'
 
-# 1
-s.platform = :ios
+# This description is used to generate tags and improve search results.
+#   * Think: What does it do? Why did you write it? What is the focus?
+#   * Try to keep it short, snappy and to the point.
+#   * Write the description between the DESC delimiters below.
+#   * Finally, don't worry about the indent, CocoaPods strips it!
+
+s.description      = <<-DESC
+An RSS feed parser written in Swift 3.0.
+DESC
+
+s.homepage         = 'https://github.com/fakerabbit/JauzziFeed'
+# s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+s.license          = { :type => 'MIT', :file => 'LICENSE' }
+s.author           = { 'Mirko Justiniano' => 'mirkoj@gmail.com' }
+s.source           = { :git => 'https://github.com/fakerabbit/JauzziFeed.git', :tag => s.version.to_s }
+# s.social_media_url = 'https://twitter.com/mirkoj'
+
 s.ios.deployment_target = '9.0'
-s.name = "JauzziParser"
-s.summary = "An RSS Feed Parser written in Swift 3.0."
 
-# 2
-s.version = "0.1.1"
+s.source_files = 'JauzziParser/**/*.{swift}'
 
-# 3
-s.license = { :type => "MIT", :file => "LICENSE" }
+# s.resource_bundles = {
+#   'JauzziParser' => ['JauzziParser/Assets/*.png']
+# }
 
-# 4 - Replace with your name and e-mail address
-s.author = { "Mirko Justiniano" => "mirkoj@gmail.com" }
-
-
-# 5 - Replace this URL with your own Github page's URL (from the address bar)
-s.homepage = "https://github.com/fakerabbit/JauzziFeed"
-
-
-# 6 - Replace this URL with your own Git URL from "Quick Setup"
-s.source = { :git => "https://github.com/fakerabbit/JauzziFeed.git", :tag => "#{s.version}"}
-
-
-# 7
-s.framework = "UIKit"
+# s.public_header_files = 'Pod/Classes/**/*.h'
+# s.frameworks = 'UIKit', 'MapKit'
 s.dependency 'Alamofire', '~> 4.0'
-
-# 8
-s.source_files = "RWPickFlavor/**/*.{swift}"
-
-# 9
-s.resources = "RWPickFlavor/**/*.{png,jpeg,jpg,storyboard,xib}"
 end
