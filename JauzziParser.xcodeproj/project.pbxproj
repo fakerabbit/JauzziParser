@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		AC8AF4781E1C6E330016C19C /* JauzziParser.h in Headers */ = {isa = PBXBuildFile; fileRef = AC8AF4761E1C6E330016C19C /* JauzziParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC8AF47F1E1C6EE70016C19C /* JauzziFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8AF47E1E1C6EE70016C19C /* JauzziFeed.swift */; };
+		AC8AF48F1E1C85460016C19C /* JauzziParser.podspec in Resources */ = {isa = PBXBuildFile; fileRef = AC8AF48B1E1C85460016C19C /* JauzziParser.podspec */; };
+		AC8AF4901E1C85460016C19C /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = AC8AF48C1E1C85460016C19C /* README.md */; };
+		AC8AF4911E1C85460016C19C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = AC8AF48D1E1C85460016C19C /* LICENSE */; };
+		AC8AF4921E1C85460016C19C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = AC8AF48E1E1C85460016C19C /* Podfile */; };
+		AC8AF4951E1C855A0016C19C /* JauzziFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8AF4941E1C855A0016C19C /* JauzziFeed.swift */; };
 		C5F1FABC9AD5CCF0464740AE /* Pods_JauzziParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6853781B8704BE834C450065 /* Pods_JauzziParser.framework */; };
 /* End PBXBuildFile section */
 
@@ -18,7 +22,11 @@
 		AC8AF4731E1C6E330016C19C /* JauzziParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JauzziParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC8AF4761E1C6E330016C19C /* JauzziParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JauzziParser.h; sourceTree = "<group>"; };
 		AC8AF4771E1C6E330016C19C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AC8AF47E1E1C6EE70016C19C /* JauzziFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JauzziFeed.swift; sourceTree = "<group>"; };
+		AC8AF48B1E1C85460016C19C /* JauzziParser.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JauzziParser.podspec; sourceTree = SOURCE_ROOT; };
+		AC8AF48C1E1C85460016C19C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		AC8AF48D1E1C85460016C19C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		AC8AF48E1E1C85460016C19C /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		AC8AF4941E1C855A0016C19C /* JauzziFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JauzziFeed.swift; path = Classes/JauzziFeed.swift; sourceTree = "<group>"; };
 		DB905EA21EEAF4FA9B7EF874 /* Pods-JauzziParser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JauzziParser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JauzziParser/Pods-JauzziParser.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,11 +80,23 @@
 		AC8AF4751E1C6E330016C19C /* JauzziParser */ = {
 			isa = PBXGroup;
 			children = (
-				AC8AF47E1E1C6EE70016C19C /* JauzziFeed.swift */,
+				AC8AF4931E1C854C0016C19C /* Classes */,
+				AC8AF48B1E1C85460016C19C /* JauzziParser.podspec */,
+				AC8AF48C1E1C85460016C19C /* README.md */,
+				AC8AF48D1E1C85460016C19C /* LICENSE */,
+				AC8AF48E1E1C85460016C19C /* Podfile */,
 				AC8AF4761E1C6E330016C19C /* JauzziParser.h */,
 				AC8AF4771E1C6E330016C19C /* Info.plist */,
 			);
 			path = JauzziParser;
+			sourceTree = "<group>";
+		};
+		AC8AF4931E1C854C0016C19C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AC8AF4941E1C855A0016C19C /* JauzziFeed.swift */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +172,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC8AF4921E1C85460016C19C /* Podfile in Resources */,
+				AC8AF4911E1C85460016C19C /* LICENSE in Resources */,
+				AC8AF48F1E1C85460016C19C /* JauzziParser.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +218,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC8AF47F1E1C6EE70016C19C /* JauzziFeed.swift in Sources */,
+				AC8AF4951E1C855A0016C19C /* JauzziFeed.swift in Sources */,
+				AC8AF4901E1C85460016C19C /* README.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

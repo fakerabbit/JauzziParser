@@ -19,13 +19,24 @@ s.summary          = 'An RSS feed parser written in Swift 3.0.'
 
 s.description      = <<-DESC
 An RSS feed parser written in Swift 3.0.
+It uses Alamofire for fetching the url and it uses Google's feed api to parse the feed.
+
+Sample usage:
+
+import JauzziParser
+
+JauzziParser.sharedInstance.fetchRss(url: "https://news.google.com/?output=rss") { [weak self] entries in
+print(entries)
+}
+
+
 DESC
 
-s.homepage         = 'https://github.com/fakerabbit/JauzziFeed'
+s.homepage         = 'https://github.com/fakerabbit/JauzziParser'
 # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
 s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.author           = { 'Mirko Justiniano' => 'mirkoj@gmail.com' }
-s.source           = { :git => 'https://github.com/fakerabbit/JauzziFeed.git', :tag => s.version.to_s }
+s.source           = { :git => 'https://github.com/fakerabbit/JauzziParser.git', :tag => s.version.to_s }
 # s.social_media_url = 'https://twitter.com/mirkoj'
 
 s.ios.deployment_target = '9.0'
