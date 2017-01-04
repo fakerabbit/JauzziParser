@@ -3,7 +3,7 @@
 An RSS Feed Parser written in Swift.
 
 [![cocoapods compatible](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg)](https://cocoapods.org/pods/JauzziParser)
-[![cocoapods compatible](https://img.shields.io/badge/pod-v0.3.0-green.svg)](https://cocoapods.org/pods/JauzziParser)
+[![cocoapods compatible](https://img.shields.io/badge/pod-v0.4.0-green.svg)](https://cocoapods.org/pods/JauzziParser)
 [![language](https://img.shields.io/badge/swift-v3.0-orange.svg)](https://swift.org)
 
 ## Requirements
@@ -63,8 +63,12 @@ for entry:JEntry in entries {
   print(entry.author) // The entry's author as a string
   print(entry.categories) // The entry's categories tag as an array of strings [String]
   print(entry.mediaGroups) // The entry's images and media as a [[String : AnyObject]]
+  print(entry.images) // The entry's images as an array of url strings [String]
   
-  // How to access entry's images:
+  // Get entry hero image:
+  print(entry.images[0]?)
+  
+  // How to access entry's mediaGroups:
   for var content:[String : AnyObject] in entry.mediaGroups {
                     if let contents:[[String : AnyObject]] = content["contents"] as! [[String : AnyObject]] {
                         print(contents)
