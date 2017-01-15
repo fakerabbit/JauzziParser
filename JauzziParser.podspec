@@ -50,4 +50,5 @@ s.source_files = 'JauzziParser/**/*.{swift}'
 # s.public_header_files = 'Pod/Classes/**/*.h'
 # s.frameworks = 'UIKit', 'MapKit'
 s.dependency 'Alamofire', '~> 4.0'
+s.dependency 'Fuzi'
 end
