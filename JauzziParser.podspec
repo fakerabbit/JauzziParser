@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'JauzziParser'
-s.version          = '0.7.0'
+s.version          = '0.8.0'
 s.summary          = 'An RSS feed parser written in Swift 3.0.'
 
 # This description is used to generate tags and improve search results.
@@ -51,4 +51,5 @@ s.source_files = 'JauzziParser/**/*.{swift}'
 # s.frameworks = 'UIKit', 'MapKit'
 s.dependency 'Alamofire', '~> 4.0'
 s.dependency 'Fuzi'
+s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
 end
