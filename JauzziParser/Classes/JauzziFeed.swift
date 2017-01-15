@@ -24,48 +24,87 @@
 
 import Foundation
 import Alamofire
+import Fuzi
 
 // MARK:- Entry
 
 /// JEntry: Model entry used by JauzziParser
 public struct JEntry {
-    /// author: entry's author
-    public var author: String?
-    /// categories: entry's tags as an array of strings
-    public var categories: [String]?
-    /// htmlContent: entry's content html as a string
-    public var htmlContent: String?
-    /// link: entry's url link
-    public var link: String?
-    /// mediaGroups: entry's media groups as a JSON array
-    public var mediaGroups: [[String : AnyObject]]?
-    /// publishedDate: entry's published date as a Date object
-    public var publishedDate: Date?
     /// title: entry's title
     public var title: String?
-    /// contentSnippet: entry's content snippet as a string
-    public var contentSnippet: String?
-    /// isFav: boolean used to check if entry is a favorite. Default is false.
-    public var isFav: Bool?
+    /// description: entry's description
+    public var description: String?
+    /// link: entry's url link
+    public var link: String?
+    /// categories: entry's tags as an array of array of strings
+    public var categories: [String]?
     /// pubDate: entry's published date as a string.
     public var pubDate: String?
-    /// images: an array of image urls found in the entry
-    public var images: [String]?
+    /// publishedDate: entry's published date as a Date object
+    public var publishedDate: Date?
+    /// mediaContent: entry's hero image url
+    public var mediaContent: String?
+    /// isFav: boolean used to check if entry is a favorite. Default is false.
+    public var isFav: Bool?
+}
+
+// MARK:- Alamofire extension
+extension Alamofire.DataRequest {
+    static func xmlResponseSerializer() -> DataResponseSerializer<XMLDocument> {
+        return DataResponseSerializer { request, response, data, error in
+            // Pass through any underlying URLSession error to the .network case.
+            guard error == nil else { return .failure(BackendError.network(error: error!)) }
+            
+            // Use Alamofire's existing data serializer to extract the data, passing the error as nil, as it has
+            // already been handled.
+            let result = Request.serializeResponseData(response: response, data: data, error: nil)
+            
+            guard case let .success(validData) = result else {
+                return .failure(BackendError.dataSerialization(error: result.error! as! AFError))
+            }
+            
+            do {
+                let xml = try XMLDocument(data: validData)
+                return .success(xml)
+            } catch {
+                return .failure(BackendError.xmlSerialization(error: error))
+            }
+        }
+    }
+    
+    @discardableResult
+    func responseXMLDocument(
+        queue: DispatchQueue? = nil,
+        completionHandler: @escaping (DataResponse<XMLDocument>) -> Void)
+        -> Self
+    {
+        return response(
+            queue: queue,
+            responseSerializer: DataRequest.xmlResponseSerializer(),
+            completionHandler: completionHandler
+        )
+    }
+}
+
+enum BackendError: Error {
+    case network(error: Error) // Capture any underlying Error from the URLSession API
+    case dataSerialization(error: Error)
+    case jsonSerialization(error: Error)
+    case xmlSerialization(error: Error)
+    case objectSerialization(reason: String)
 }
 
 // MARK:- Parser
 
 /// JauzziParser: the RSS Feed parser
 /// ```swift
-///    JauzziParser.sharedInstance.fetchRss(url: "http://www.theverge.com/rss/index.xml") { [weak self] entries in
+///    JauzziParser.sharedInstance.fetchRss(url: "http://www.senalesdelfin.com/rss/") { [weak self] entries in
 ///    print(entries)
 ///    }
 public class JauzziParser {
     
     /// sharedInstance: the JauzziParser singleton
     public static let sharedInstance = JauzziParser()
-    
-    let GOOGLE_FEED_API_URL = "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=-1&q="
     
     /// JauzziParserCallback: the callback used by fetchRss.
     /// - Returns: an array of JEntry objects
@@ -76,79 +115,110 @@ public class JauzziParser {
     /// - Returns: an array of JEntry objects
     public func fetchRss(url: String, callback: @escaping JauzziParserCallback) {
         
-        let reqUrl = GOOGLE_FEED_API_URL + url.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlPathAllowed)!
-        
-        Alamofire.request(reqUrl).responseJSON { response in
-            //print(response.request)  // original URL request
-            //print(response.response) // HTTP URL response
-            //print(response.data)     // server data
-            //print(response.result)   // result of response serialization
+        Alamofire.request(url).responseXMLDocument { (response: DataResponse<XMLDocument>) in
+            //debugPrint(response)
             
-            if let JSON = response.result.value {
-                //print("JSON: \(JSON)")
-                if let responseData = (JSON as! NSDictionary).object(forKey: "responseData") {
-                    if let feed = (responseData as! NSDictionary).object(forKey: "feed") {
-                        if let entries: [NSDictionary] = (feed as! NSDictionary).object(forKey: "entries") as! [NSDictionary]? {
-                            //print(entries[0])
-                            var jEntries:[JEntry] = []
-                            for var entry in entries {
-                                var author:String = ""
-                                if entry.object(forKey: "author") != nil {
-                                    author = entry.object(forKey: "author") as! String
-                                }
-                                var categories:[String]?
-                                if entry.object(forKey: "categories") != nil {
-                                    categories = entry.object(forKey: "categories") as! [String]
-                                }
-                                var content:String?
-                                if entry.object(forKey: "content") != nil {
-                                    content = entry.object(forKey: "content") as! String
-                                }
-                                var link:String = ""
-                                if entry.object(forKey: "link") != nil {
-                                    link = entry.object(forKey: "link") as! String
-                                }
-                                var mediaGroups:[[String : AnyObject]]?
-                                var images:[String] = []
-                                if entry.object(forKey: "mediaGroups") != nil {
-                                    if let mg:[[String : AnyObject]] = entry.object(forKey: "mediaGroups") as! [[String : AnyObject]] {
-                                        mediaGroups = mg
-                                        for var content:[String : AnyObject] in mediaGroups! {
-                                            if let contents:[[String : AnyObject]] = content["contents"] as! [[String : AnyObject]] {
-                                                for var c:[String : AnyObject] in contents {
-                                                    if let media:String = c["medium"] as? String {
-                                                        if media == "image" {
-                                                            if let url:String = c["url"] as? String {
-                                                                images.append(url)
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                let stringDate:String = entry.object(forKey: "publishedDate") as! String
-                                let dateFormatter = DateFormatter()
-                                dateFormatter.dateFormat = "E, d MMM yyyy HH:mm:ss Z"
-                                let pubDate:Date? = dateFormatter.date(from: stringDate)
-                                let title:String = entry.object(forKey: "title") as! String
-                                var contentSnippet: String?
-                                if entry.object(forKey: "contentSnippet") != nil {
-                                    contentSnippet = entry.object(forKey: "contentSnippet") as! String
-                                }
-                                let jEntry = JEntry(author: author, categories: categories, htmlContent: content, link: link, mediaGroups: mediaGroups, publishedDate: pubDate, title: title, contentSnippet: contentSnippet, isFav: false, pubDate: stringDate, images: images)
-                                //print(jEntry)
-                                jEntries.append(jEntry)
+            // Parse xml document:
+            var titles:[XMLElement] = []
+            var descriptions:[XMLElement] = []
+            var links:[XMLElement] = []
+            var categories:[[XMLElement]] = []
+            var pubDates:[XMLElement] = []
+            var mediaContents:[XMLElement] = []
+            
+            if let document: XMLDocument = response.result.value! {
+                //debugPrint(document.root?.childNodes(ofTypes: [.Element, .Text, .Comment]) ?? "nada")
+                if let root = document.root {
+                    for element in root.children {
+                        //debugPrint(element)
+                        for node in element.children {
+                            //debugPrint(node)
+                            titles.append(contentsOf: node.children(tag: "title"))
+                            descriptions.append(contentsOf: node.children(tag: "description"))
+                            links.append(contentsOf: node.children(tag: "link"))
+                            let category:[XMLElement] = node.children(tag: "category")
+                            if category.count > 0 {
+                                categories.append(category)
                             }
-                            callback(jEntries)
+                            pubDates.append(contentsOf: node.children(tag: "pubDate"))
+                            mediaContents.append(contentsOf: node.children(tag: "media:content"))
+                            if let media:XMLElement = node.firstChild(xpath: "media:content") {
+                                mediaContents.append(media)
+                            }
                         }
                     }
                 }
             }
-            else {
-                callback([])
+            
+            // Create entries
+            var entries:[JEntry] = []
+            var wordpressRss:Bool = false
+            
+            for i in 0 ..< links.count {
+                
+                var title:String = ""
+                if titles.count > i {
+                    let t:XMLElement? = titles[i]
+                    title = (t?.stringValue)!
+                    
+                    if title == "Estudia La Biblia" {
+                        wordpressRss = true
+                    }
+                }
+                
+                if title != "Estudia La Biblia" {
+                    var description:String = ""
+                    if descriptions.count > i {
+                        let d:XMLElement? = descriptions[i]
+                        description = (d?.stringValue)!
+                    }
+                    
+                    var link:String = ""
+                    if links.count > i {
+                        let l:XMLElement? = links[i]
+                        link = (l?.stringValue)!
+                    }
+                    
+                    var catStrings:[String] = []
+                    if categories.count > i {
+                        let cats:[XMLElement]? = categories[i]
+                        for var catElement:XMLElement in cats! {
+                            catStrings.append(catElement.stringValue)
+                        }
+                    }
+                    
+                    var pubDate:String = ""
+                    var publishedDate:Date = Date()
+                    if pubDates.count > i {
+                        let p:XMLElement? = pubDates[i]
+                        pubDate = (p?.stringValue)!
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "E, d MMM yyyy HH:mm:ss Z"
+                        publishedDate = dateFormatter.date(from: pubDate)!
+                    }
+                    
+                    var mediaContent:String = ""
+                    if wordpressRss {
+                        if mediaContents.count > i-1 {
+                            let m:XMLElement? = mediaContents[i-1]
+                            mediaContent = (m?.attr("url"))!
+                        }
+                    }
+                    else {
+                        if mediaContents.count > i {
+                            let m:XMLElement? = mediaContents[i]
+                            mediaContent = (m?.attr("url"))!
+                        }
+                    }
+                    
+                    let entry = JEntry(title: title, description: description, link: link, categories: catStrings, pubDate: pubDate, publishedDate: publishedDate, mediaContent: mediaContent, isFav: false)
+                    entries.append(entry)
+                    //debugPrint(entry)
+                    //debugPrint("********************************")
+                }
             }
+            
+            callback(entries)
         }
     }
 }

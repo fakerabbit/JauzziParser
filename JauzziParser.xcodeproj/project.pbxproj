@@ -25,7 +25,7 @@
 		AC8AF48B1E1C85460016C19C /* JauzziParser.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JauzziParser.podspec; sourceTree = SOURCE_ROOT; };
 		AC8AF48C1E1C85460016C19C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		AC8AF48D1E1C85460016C19C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
-		AC8AF48E1E1C85460016C19C /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		AC8AF48E1E1C85460016C19C /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AC8AF4941E1C855A0016C19C /* JauzziFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JauzziFeed.swift; path = Classes/JauzziFeed.swift; sourceTree = "<group>"; };
 		DB905EA21EEAF4FA9B7EF874 /* Pods-JauzziParser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JauzziParser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JauzziParser/Pods-JauzziParser.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
