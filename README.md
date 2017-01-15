@@ -62,6 +62,7 @@ for entry:JEntry in entries {
   print(entry.publishedDate) // Then entry published date as a Date
   print(entry.categories) // The entry's categories tag as an array of strings [String]
   print(entry.mediaContent) // The entry's hero image as a string url
+  }
   
 ```   
 ## License
