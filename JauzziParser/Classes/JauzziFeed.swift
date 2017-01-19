@@ -126,24 +126,26 @@ public class JauzziParser {
             var pubDates:[XMLElement] = []
             var mediaContents:[XMLElement] = []
             
-            if let document: XMLDocument = response.result.value! {
-                //debugPrint(document.root?.childNodes(ofTypes: [.Element, .Text, .Comment]) ?? "nada")
-                if let root = document.root {
-                    for element in root.children {
-                        //debugPrint(element)
-                        for node in element.children {
-                            //debugPrint(node)
-                            titles.append(contentsOf: node.children(tag: "title"))
-                            descriptions.append(contentsOf: node.children(tag: "description"))
-                            links.append(contentsOf: node.children(tag: "link"))
-                            let category:[XMLElement] = node.children(tag: "category")
-                            if category.count > 0 {
-                                categories.append(category)
-                            }
-                            pubDates.append(contentsOf: node.children(tag: "pubDate"))
-                            mediaContents.append(contentsOf: node.children(tag: "media:content"))
-                            if let media:XMLElement = node.firstChild(xpath: "media:content") {
-                                mediaContents.append(media)
+            if response.result != nil && response.result.value != nil {
+                if let document: XMLDocument = response.result.value! {
+                    //debugPrint(document.root?.childNodes(ofTypes: [.Element, .Text, .Comment]) ?? "nada")
+                    if let root = document.root {
+                        for element in root.children {
+                            //debugPrint(element)
+                            for node in element.children {
+                                //debugPrint(node)
+                                titles.append(contentsOf: node.children(tag: "title"))
+                                descriptions.append(contentsOf: node.children(tag: "description"))
+                                links.append(contentsOf: node.children(tag: "link"))
+                                let category:[XMLElement] = node.children(tag: "category")
+                                if category.count > 0 {
+                                    categories.append(category)
+                                }
+                                pubDates.append(contentsOf: node.children(tag: "pubDate"))
+                                mediaContents.append(contentsOf: node.children(tag: "media:content"))
+                                if let media:XMLElement = node.firstChild(xpath: "media:content") {
+                                    mediaContents.append(media)
+                                }
                             }
                         }
                     }
@@ -188,13 +190,16 @@ public class JauzziParser {
                     }
                     
                     var pubDate:String = ""
-                    var publishedDate:Date = Date()
+                    var publishedDate:Date?
                     if pubDates.count > i {
                         let p:XMLElement? = pubDates[i]
                         pubDate = (p?.stringValue)!
                         let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "E, d MMM yyyy HH:mm:ss Z"
-                        publishedDate = dateFormatter.date(from: pubDate)!
+                        dateFormatter.timeZone = NSTimeZone.local
+                        dateFormatter.locale = NSLocale.current
+                        dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss ZZZ"
+                        dateFormatter.formatterBehavior = DateFormatter.defaultFormatterBehavior
+                        publishedDate = dateFormatter.date(from: pubDate)
                     }
                     
                     var mediaContent:String = ""
