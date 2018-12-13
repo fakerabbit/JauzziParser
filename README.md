@@ -26,7 +26,7 @@ To integrate `JauzziParser` into your Xcode project, specify it in your `Podfile
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '9.0'
+platform :ios, '11.0'
 use_frameworks!
 
 target 'MyApp' do

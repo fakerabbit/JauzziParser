@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'JauzziParser'
-s.version          = '1.0.0'
+s.version          = '1.0.1'
 s.summary          = 'An RSS feed parser written in Swift 3.0.'
 
 # This description is used to generate tags and improve search results.
@@ -18,7 +18,7 @@ s.summary          = 'An RSS feed parser written in Swift 3.0.'
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
 s.description      = <<-DESC
-An RSS feed parser written in Swift 3.0.
+An RSS feed parser written in Swift 4.0.
 It uses Alamofire for fetching the url and it uses Google's feed api to parse the feed.
 
 Sample usage:
@@ -39,7 +39,7 @@ s.author           = { 'Mirko Justiniano' => 'mirkoj@gmail.com' }
 s.source           = { :git => 'https://github.com/fakerabbit/JauzziParser.git', :tag => s.version.to_s }
 # s.social_media_url = 'https://twitter.com/mirkoj'
 
-s.ios.deployment_target = '9.0'
+s.ios.deployment_target = '11.0'
 
 s.source_files = 'JauzziParser/**/*.{swift}'
 
@@ -50,6 +50,5 @@ s.source_files = 'JauzziParser/**/*.{swift}'
 # s.public_header_files = 'Pod/Classes/**/*.h'
 # s.frameworks = 'UIKit', 'MapKit'
 s.dependency 'Alamofire', '~> 4.0'
-s.dependency 'Fuzi'
 s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
 end
