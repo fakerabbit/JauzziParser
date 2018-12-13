@@ -24,7 +24,7 @@
 
 import Foundation
 import Alamofire
-import Fuzi
+//import Fuzi
 
 // MARK:- Entry
 
@@ -210,8 +210,8 @@ public class JauzziParser {
                         }
                     }
                     else {
-                        if mediaContents.count > i {
-                            let m:XMLElement? = mediaContents[i]
+                        if mediaContents.count > i-1 {
+                            let m:XMLElement? = mediaContents[i-1 >= 0 ? i-1 : i]
                             mediaContent = (m?.attr("url"))!
                         }
                     }

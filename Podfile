@@ -7,5 +7,4 @@ target 'JauzziParser' do
 
   # Pods for JauzziParser
     pod 'Alamofire', '~> 4.0'
-    pod 'Fuzi’
 end

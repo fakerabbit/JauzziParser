@@ -1,15 +1,16 @@
 PODS:
   - Alamofire (4.2.0)
-  - Fuzi (1.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
-  - Fuzi
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
-  Fuzi: 851403654bac55675aaeed815d0c8a1d3e3d3e8b
 
-PODFILE CHECKSUM: 89d261f5d8cb49de12b40402934958326b43d4fd
+PODFILE CHECKSUM: 616347da27a26d062fe62ece4a28fcafbdcffa77
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.5.3
