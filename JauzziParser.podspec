@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
 s.name             = 'JauzziParser'
 s.version          = '1.0.1'
 s.summary          = 'An RSS feed parser written in Swift 3.0.'
+s.swift_version    = '4.0'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -42,13 +43,13 @@ s.source           = { :git => 'https://github.com/fakerabbit/JauzziParser.git',
 s.ios.deployment_target = '11.0'
 
 s.source_files = 'JauzziParser/**/*.{swift}'
+s.libraries        = "xml2"
+s.xcconfig         = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2', 'OTHER_LDFLAGS' => '-lxml2' }
 
 # s.resource_bundles = {
 #   'JauzziParser' => ['JauzziParser/Assets/*.png']
 # }
 
 # s.public_header_files = 'Pod/Classes/**/*.h'
-# s.frameworks = 'UIKit', 'MapKit'
 s.dependency 'Alamofire', '~> 4.0'
-s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
 end

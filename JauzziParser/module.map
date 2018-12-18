@@ -1,0 +1,5 @@
+module libxml [system] {
+    header "$(SDKROOT)/usr/include/libxml2/libxml/tree.h"
+    link "xml2"
+    export *
+}

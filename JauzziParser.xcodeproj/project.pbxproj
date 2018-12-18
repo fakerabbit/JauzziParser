@@ -12,15 +12,14 @@
 		AC2E1E5421C1F95C0012AC51 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E1E4C21C1F95C0012AC51 /* Node.swift */; };
 		AC2E1E5521C1F95C0012AC51 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E1E4D21C1F95C0012AC51 /* Error.swift */; };
 		AC2E1E5621C1F95C0012AC51 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E1E4E21C1F95C0012AC51 /* Document.swift */; };
-		AC2E1E5721C1F95C0012AC51 /* Fuzi.h in Headers */ = {isa = PBXBuildFile; fileRef = AC2E1E4F21C1F95C0012AC51 /* Fuzi.h */; };
 		AC2E1E5821C1F95C0012AC51 /* Queryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E1E5021C1F95C0012AC51 /* Queryable.swift */; };
 		AC2E1E5921C1F95C0012AC51 /* NodeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E1E5121C1F95C0012AC51 /* NodeSet.swift */; };
 		AC8AF4781E1C6E330016C19C /* JauzziParser.h in Headers */ = {isa = PBXBuildFile; fileRef = AC8AF4761E1C6E330016C19C /* JauzziParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AC8AF48F1E1C85460016C19C /* JauzziParser.podspec in Resources */ = {isa = PBXBuildFile; fileRef = AC8AF48B1E1C85460016C19C /* JauzziParser.podspec */; };
-		AC8AF4901E1C85460016C19C /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = AC8AF48C1E1C85460016C19C /* README.md */; };
 		AC8AF4911E1C85460016C19C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = AC8AF48D1E1C85460016C19C /* LICENSE */; };
 		AC8AF4921E1C85460016C19C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = AC8AF48E1E1C85460016C19C /* Podfile */; };
 		AC8AF4951E1C855A0016C19C /* JauzziFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8AF4941E1C855A0016C19C /* JauzziFeed.swift */; };
+		ACB74EFB21C893E800E54CFE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AC8AF48C1E1C85460016C19C /* README.md */; };
 		C5F1FABC9AD5CCF0464740AE /* Pods_JauzziParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6853781B8704BE834C450065 /* Pods_JauzziParser.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +31,6 @@
 		AC2E1E4C21C1F95C0012AC51 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Node.swift; path = Classes/Node.swift; sourceTree = "<group>"; };
 		AC2E1E4D21C1F95C0012AC51 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Classes/Error.swift; sourceTree = "<group>"; };
 		AC2E1E4E21C1F95C0012AC51 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Document.swift; path = Classes/Document.swift; sourceTree = "<group>"; };
-		AC2E1E4F21C1F95C0012AC51 /* Fuzi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Fuzi.h; path = Classes/Fuzi.h; sourceTree = "<group>"; };
 		AC2E1E5021C1F95C0012AC51 /* Queryable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Queryable.swift; path = Classes/Queryable.swift; sourceTree = "<group>"; };
 		AC2E1E5121C1F95C0012AC51 /* NodeSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NodeSet.swift; path = Classes/NodeSet.swift; sourceTree = "<group>"; };
 		AC8AF4731E1C6E330016C19C /* JauzziParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JauzziParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +41,7 @@
 		AC8AF48D1E1C85460016C19C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		AC8AF48E1E1C85460016C19C /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AC8AF4941E1C855A0016C19C /* JauzziFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JauzziFeed.swift; path = Classes/JauzziFeed.swift; sourceTree = "<group>"; };
+		ACB74EFE21C8A09C00E54CFE /* module.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.map; sourceTree = "<group>"; };
 		DB905EA21EEAF4FA9B7EF874 /* Pods-JauzziParser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JauzziParser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JauzziParser/Pods-JauzziParser.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +95,7 @@
 		AC8AF4751E1C6E330016C19C /* JauzziParser */ = {
 			isa = PBXGroup;
 			children = (
+				ACB74EFD21C8A05300E54CFE /* Libxml2 */,
 				AC8AF4931E1C854C0016C19C /* Classes */,
 				AC8AF48B1E1C85460016C19C /* JauzziParser.podspec */,
 				AC8AF48C1E1C85460016C19C /* README.md */,
@@ -113,7 +113,6 @@
 				AC2E1E4E21C1F95C0012AC51 /* Document.swift */,
 				AC2E1E4A21C1F95C0012AC51 /* Element.swift */,
 				AC2E1E4D21C1F95C0012AC51 /* Error.swift */,
-				AC2E1E4F21C1F95C0012AC51 /* Fuzi.h */,
 				AC2E1E4B21C1F95C0012AC51 /* Helpers.swift */,
 				AC2E1E4C21C1F95C0012AC51 /* Node.swift */,
 				AC2E1E5121C1F95C0012AC51 /* NodeSet.swift */,
@@ -123,6 +122,14 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
+		ACB74EFD21C8A05300E54CFE /* Libxml2 */ = {
+			isa = PBXGroup;
+			children = (
+				ACB74EFE21C8A09C00E54CFE /* module.map */,
+			);
+			name = Libxml2;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -130,7 +137,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC2E1E5721C1F95C0012AC51 /* Fuzi.h in Headers */,
 				AC8AF4781E1C6E330016C19C /* JauzziParser.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +153,7 @@
 				AC8AF46F1E1C6E330016C19C /* Frameworks */,
 				AC8AF4701E1C6E330016C19C /* Headers */,
 				AC8AF4711E1C6E330016C19C /* Resources */,
+				ACB74EFC21C89A8C00E54CFE /* Remove Unused Architectures Script */,
 			);
 			buildRules = (
 			);
@@ -196,6 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACB74EFB21C893E800E54CFE /* README.md in Resources */,
 				AC8AF4921E1C85460016C19C /* Podfile in Resources */,
 				AC8AF4911E1C85460016C19C /* LICENSE in Resources */,
 				AC8AF48F1E1C85460016C19C /* JauzziParser.podspec in Resources */,
@@ -223,6 +231,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		ACB74EFC21C89A8C00E54CFE /* Remove Unused Architectures Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Remove Unused Architectures Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "################################################################################\n#\n# Copyright 2015 Realm Inc.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n# http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\n################################################################################\n\n# This script strips all non-valid architectures from dynamic libraries in\n# the application's `Frameworks` directory.\n#\n# The following environment variables are required:\n#\n# BUILT_PRODUCTS_DIR\n# FRAMEWORKS_FOLDER_PATH\n# VALID_ARCHS\n# EXPANDED_CODE_SIGN_IDENTITY\n\n# Signs a framework with the provided identity\ncode_sign() {\n# Use the current code_sign_identitiy\necho \"Code Signing $1 with Identity ${EXPANDED_CODE_SIGN_IDENTITY_NAME}\"\necho \"/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements $1\"\n/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements \"$1\"\n}\n\necho \"Stripping frameworks\"\ncd \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\n\nfor file in $(find . -type f -perm +111); do\n# Skip non-dynamic libraries\nif ! [[ \"$(file \"$file\")\" == *\"dynamically linked shared library\"* ]]; then\ncontinue\nfi\n# Get architectures for current file\narchs=\"$(lipo -info \"${file}\" | rev | cut -d ':' -f1 | rev)\"\nstripped=\"\"\nfor arch in $archs; do\nif ! [[ \"${VALID_ARCHS}\" == *\"$arch\"* ]]; then\n# Strip non-valid architectures in-place\nlipo -remove \"$arch\" -output \"$file\" \"$file\" || exit 1\nstripped=\"$stripped $arch\"\nfi\ndone\nif [[ \"$stripped\" != \"\" ]]; then\necho \"Stripped $file of architectures:$stripped\"\nif [ \"${CODE_SIGNING_REQUIRED}\" == \"YES\" ]; then\ncode_sign \"${file}\"\nfi\nfi\ndone\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -233,7 +259,6 @@
 				AC8AF4951E1C855A0016C19C /* JauzziFeed.swift in Sources */,
 				AC2E1E5421C1F95C0012AC51 /* Node.swift in Sources */,
 				AC2E1E5921C1F95C0012AC51 /* NodeSet.swift in Sources */,
-				AC8AF4901E1C85460016C19C /* README.md in Sources */,
 				AC2E1E5221C1F95C0012AC51 /* Element.swift in Sources */,
 				AC2E1E5821C1F95C0012AC51 /* Queryable.swift in Sources */,
 				AC2E1E5521C1F95C0012AC51 /* Error.swift in Sources */,
@@ -295,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -351,7 +376,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -377,7 +402,7 @@
 				HEADER_SEARCH_PATHS = $SDKROOT/usr/include/libxml2;
 				INFOPLIST_FILE = JauzziParser/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -409,7 +434,7 @@
 				HEADER_SEARCH_PATHS = $SDKROOT/usr/include/libxml2;
 				INFOPLIST_FILE = JauzziParser/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

@@ -126,7 +126,7 @@ public class JauzziParser {
             var mediaContents:[XMLElement] = []
             
             if response.result != nil && response.result.value != nil {
-                if let document: XMLDocument = response.result.value! {
+                if let document = response.result.value! as? XMLDocument {
                     //debugPrint(document.root?.childNodes(ofTypes: [.Element, .Text, .Comment]) ?? "nada")
                     if let root = document.root {
                         for element in root.children {
